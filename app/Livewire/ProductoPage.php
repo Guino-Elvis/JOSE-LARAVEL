@@ -13,7 +13,7 @@ class ProductoPage extends Component
     {
         $categorias = Category::all();
 
-        $productos = Producto::all(); 
+        $productos = Producto::all();
         return view('pages.home-page',compact('productos','categorias'));
     }
 }
