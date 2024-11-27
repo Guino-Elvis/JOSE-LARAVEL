@@ -16,6 +16,9 @@
                         <x-responsive-nav-link href="{{ route('inicio') }}" :active="request()->routeIs('inicio', 'inicio')">
                             {{ __('Favoritos') }}
                         </x-responsive-nav-link>
+                        <x-responsive-nav-link href="{{ route('recoment') }}" :active="request()->routeIs('recoment', 'recoment')">
+                            {{ __('recoment') }}
+                        </x-responsive-nav-link>
                     @endauth
                 </div>
 
@@ -89,4 +92,3 @@
         </div>
     </div>
 </div>
-

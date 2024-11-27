@@ -5,7 +5,13 @@
         <div class="px-2 xl:px-20 lg:px-20 md:px-15 sm:px-5">
             <div class="flex flex-col gap-8">
                 <div class="flex flex-col px-4 gap-4">
+                    @if ($mensaje)
+                    <div class="alert alert-success">
+                        {{ $mensaje }}
+                    </div>
+                @endif
                     <samp class="font-bold uppercase">Detalle de producto</samp>
+
                     <div class="flex gap-2  flex-wrap ">
 
                         <a class="px-10 py-2 rounded-2xl text-black font-bold  border border-gray-400  hover:bg-black hover:text-white focus:bg-black  transition duration-300 ease-in-out selected:bg-black selected:border-none"
@@ -35,8 +41,9 @@
                                 </div>
                             </div>
                             <div class="relative">
-                                <img src="/img/default.png"
-                                    class="rounded-2xl object-cover object-center h-auto w-full " alt="{{ $item->nombre }}">
+                                    <img src="{{ $item->images->isNotEmpty() ? Storage::url($item->images->first()->url) : '/img/default.png' }}"
+                                    class="rounded-2xl object-cover object-center h-auto w-full" 
+                                    alt="{{ $item->nombre }}">
                             </div>
                             <div class="pt-1">
                                 <span class=" font-bold truncate block">{{$item->nombre}}</span>
@@ -61,7 +68,7 @@
                                 <a href="{{ route('producto.detalle', $item->id) }}"
                                     class="absolute w-11/12 text-center rounded-3xl bg-black text-white px-10 py-2  opacity-0 transition group-hover:opacity-100 group-hover:mt-14">
                                     VER MÁS
-                                    <a />
+                                </a>
                             </div>
                         </div>
 
@@ -92,4 +99,5 @@
             height: 3rem;
         }
     </style>
+ 
 </div>

@@ -24,8 +24,9 @@
                                 </div>
                             </div>
                             <div class="relative">
-                                <img src="/img/default.png"
-                                    class="rounded-2xl object-cover object-center h-auto w-full " alt="{{ $item->nombre }}">
+                                <img src="{{ $item->images->isNotEmpty() ? Storage::url($item->images->first()->url) : '/img/default.png' }}"
+                                class="rounded-2xl object-cover object-center h-auto w-full" 
+                                alt="{{ $item->nombre }}">
                             </div>
                             <div class="pt-1">
                                 <span class=" font-bold truncate block">{{$item->nombre}}</span>
@@ -50,7 +51,7 @@
                                 <a href="{{ route('producto.detalle', $item->id) }}"
                                     class="absolute w-11/12 text-center rounded-3xl bg-black text-white px-10 py-2  opacity-0 transition group-hover:opacity-100 group-hover:mt-14">
                                     VER MÁS
-                                    <a />
+                                </a >
                             </div>
                         </div>
 
